@@ -6,8 +6,6 @@ import android.view.MotionEvent;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Scroller;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 
 import java.lang.reflect.Field;
@@ -26,18 +24,13 @@ public class NonSwipableViewPager extends ViewPager {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
-        // Never allow swiping to switch between pages
         return false;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        // Never allow swiping to switch between pages
         return false;
     }
-
-    //down one is added for smooth scrolling
-
     private void setMyScroller() {
         try {
             Class<?> viewpager = ViewPager.class;

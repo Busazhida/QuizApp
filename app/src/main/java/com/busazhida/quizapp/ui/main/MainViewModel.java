@@ -1,19 +1,23 @@
 package com.busazhida.quizapp.ui.main;
 
+import androidx.databinding.ObservableField;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class MainViewModel extends ViewModel {
 
+    public ObservableField<String> result = new ObservableField<>("0");
 
-    public MutableLiveData<String> nameData = new MutableLiveData<>();
+    int count = 0;
 
-    public void getName(){
-        nameData.setValue("Victory");
+    public void plusClick(){
+        count++;
+        result.set(String.valueOf(count));
     }
 
-    public void getName2(){
-
+    public void minusClick(){
+        count--;
+        result.set(String.valueOf(count));
     }
 
 }

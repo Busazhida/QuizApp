@@ -120,6 +120,7 @@
         android:id="@+id/spinner_first"
         android:layout_width="340dp"
         android:layout_height="48dp"
+        android:elevation="3dp"
         android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="@+id/tv_Category"
         app:layout_constraintTop_toBottomOf="@+id/tv_Category" />
@@ -141,7 +142,10 @@
         android:layout_height="48dp"
         android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="@+id/tv_Difficulty"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Difficulty" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_Difficulty"
+        android:elevation="3dp"
+        android:entries="@array/spinner_category_example"
+        android:popupBackground="@android:drawable/dialog_holo_light_frame"/>
 
     <Button
         android:id="@+id/btn_start"

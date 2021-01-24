@@ -1,5 +1,7 @@
 package com.busazhida.quizapp.data.network;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import com.busazhida.quizapp.data.call_back.IQuizApiCallBack;
@@ -27,10 +29,12 @@ public class QuizApiService implements IQuizApiClient {
                     @Override
                     public void onResponse(@NonNull Call<QuizResponse> call, @NonNull Response<QuizResponse> response) {
                         callBack.onSuccess(response.body());
+                        Log.e("dfgkljsldkj", "onSuccess: " + response.body().getQuestions());
                     }
 
                     @Override
                     public void onFailure(@NonNull Call<QuizResponse> call, @NonNull Throwable t) {
+                        Log.e("fdsljkdsflkjadfs", "onFailure: ", t);
                         callBack.onFailure(t);
                     }
                 });

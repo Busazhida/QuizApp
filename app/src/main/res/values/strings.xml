@@ -4,4 +4,18 @@
     <string name="questions_amount">Questions amount:</string>
     <string name="skip">Skip</string>
     <string name="question_type_title">Animal</string>
+    <string name="history_category">Category: </string>
+    <string name="history_text_vivew_category">Mixed</string>
+    <string name="correct_ans">" Correct Answer: "</string>
+    <string name="text_view_correct_ans">8/10</string>
+    <string name="history_difficulty">"Difficulty: "</string>
+    <string name="text_view_difficulty">Easy</string>
+    <string name="text_view_data">12 may 2019 20:32</string>
+    <string-array name="spinner_category_example">
+        <item>Any type</item>
+        <item>easy</item>
+        <item>medium</item>
+        <item>hard</item>
+    </string-array>
+
 </resources>

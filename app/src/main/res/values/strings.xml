@@ -11,6 +11,22 @@
     <string name="history_difficulty">"Difficulty: "</string>
     <string name="text_view_difficulty">Easy</string>
     <string name="text_view_data">12 may 2019 20:32</string>
+    <string name="version">v 1.0.0</string>
+    <string name="share_this_app">Share this app</string>
+    <string name="rate_us">Rate us</string>
+    <string name="leave_feedback">Leave feedback</string>
+    <string name="clear_history">Clear history</string>
+    <string name="settings_title">Settings</string>
+    <string name="result">Result</string>
+    <string name="contentdesription">contentDesription</string>
+    <string name="category_result">Category:</string>
+    <string name="result_difficulty">Difficulty:</string>
+    <string name="result_correct_ans">Correct answers:</string>
+    <string name="result_tv">Result:</string>
+    <string name="btn_finish_text">Finish</string>
+    <string name="delete">delete</string>
+    <string name="no">no</string>
+
     <string-array name="spinner_category_example">
         <item>Any type</item>
         <item>easy</item>

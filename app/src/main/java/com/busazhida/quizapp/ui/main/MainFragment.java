@@ -75,7 +75,7 @@ public class MainFragment extends Fragment {
     }
 
     private void subscribeQuestionsAmount() {
-        mViewModel.progressBarSuccess.observe(this, amount -> binding.tvTen.setText(String.valueOf(amount)));
+        mViewModel.progressBarSuccess.observe(requireActivity(), amount -> binding.tvTen.setText(String.valueOf(amount)));
     }
 
     private void subscribeCategory() {

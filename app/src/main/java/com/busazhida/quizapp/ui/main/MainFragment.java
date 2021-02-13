@@ -32,7 +32,6 @@ public class MainFragment extends Fragment {
     private MainFragmentBinding binding;
     private String difficulty;
     private Integer categoryId;
-    private String categoryTitle;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -91,7 +90,6 @@ public class MainFragment extends Fragment {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     categoryId = triviaCategories.getTriviaCategories().get(position).getId();
-                    categoryTitle = triviaCategories.getTriviaCategories().get(position).getName();
                 }
             });
         });

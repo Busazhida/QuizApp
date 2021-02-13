@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
 
+import com.busazhida.quizapp.App;
 import com.busazhida.quizapp.R;
 import com.busazhida.quizapp.data.models.ResultQuiz;
 import com.busazhida.quizapp.databinding.ActivityResultBinding;
@@ -18,7 +19,7 @@ public class ResultActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.Theme_QuizApp_NoActionbar);
+        setTheme(App.getInstance().getPrefs().getTheme());
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_result);
         init();

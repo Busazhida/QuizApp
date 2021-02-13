@@ -1,10 +1,12 @@
 package com.busazhida.quizapp.ui.questions;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,9 +16,11 @@ import com.busazhida.quizapp.databinding.ActivityQuestionBinding;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.busazhida.quizapp.R;
 import com.busazhida.quizapp.ui.adapter.QuestionsAdapter;
+import com.busazhida.quizapp.ui.customs.CustomLinearLayoutManager;
 import com.busazhida.quizapp.ui.result.ResultActivity;
 
 public class QuestionsActivity extends AppCompatActivity implements OnResultAnswerClickListener {
@@ -24,9 +28,8 @@ public class QuestionsActivity extends AppCompatActivity implements OnResultAnsw
     private QuestionsAdapter adapter;
     private ActivityQuestionBinding binding;
     private QuestionsViewModel mViewModel;
-    private String count;
-    private String category;
-    private String difficulty;
+    private String count, category, difficulty;
+    private int position;
 
     @RequiresApi(api = Build.VERSION_CODES.R)
     @Override
@@ -63,6 +66,8 @@ public class QuestionsActivity extends AppCompatActivity implements OnResultAnsw
         mViewModel.position.observe(this, pos -> {
             binding.progressBar.setProgress(pos);
             binding.questionRecyclerview.scrollToPosition(pos);
+            if (!mViewModel.questionsLD.getValue().isEmpty())
+                binding.categoryTitle.setText(mViewModel.questionsLD.getValue().get(pos).getCategory());
         });
     }
 
@@ -83,6 +88,25 @@ public class QuestionsActivity extends AppCompatActivity implements OnResultAnsw
             }
         };
         binding.questionRecyclerview.setLayoutManager(linearLayoutManager);
+        binding.questionRecyclerview.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+                CustomLinearLayoutManager linearLayoutManager = (CustomLinearLayoutManager) recyclerView.getLayoutManager();
+                if (linearLayoutManager != null)
+                    position = linearLayoutManager.findFirstVisibleItemPosition();
+                binding.setPosition(position + 1);
+                binding.progressTv.setText((position + 1) + "/" + mViewModel.questionsLD.getValue().size());
+                binding.categoryTitle.setText((CharSequence) mViewModel.questionsLD.getValue().get(position));
+            }
+        });
 
     }
 

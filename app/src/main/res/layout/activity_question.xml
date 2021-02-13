@@ -6,6 +6,10 @@
         <import type="android.view.View" />
 
         <variable
+            name="position"
+            type="int" />
+
+        <variable
             name="viewModel"
             type="com.busazhida.quizapp.ui.questions.QuestionsViewModel" />
 
@@ -15,9 +19,9 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        android:background="?attr/attrsColorForTheme"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/white">
+        android:layout_height="match_parent">
 
         <ProgressBar
             android:id="@+id/progress_bar_loading"
@@ -73,7 +77,7 @@
             android:layout_width="210dp"
             android:layout_height="10dp"
             android:max="10"
-            android:progress="5"
+            android:progress="@{position}"
             android:progressTint="#BE52F2"
             android:thumb="@color/purple_200"
             app:layout_constraintEnd_toEndOf="parent"
@@ -84,6 +88,7 @@
             android:id="@+id/progress_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

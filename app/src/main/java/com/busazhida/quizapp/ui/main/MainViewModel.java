@@ -10,7 +10,7 @@ import com.busazhida.quizapp.data.models.TriviaCategories;
 
 public class MainViewModel extends ViewModel implements IQuizApiCallBack.Categories {
 
-    public ObservableField<String> result = new ObservableField<>("0");
+    public ObservableField<String> result = new ObservableField<>("10");
     MutableLiveData<TriviaCategories> triviaCategories = new MutableLiveData<>();
     MutableLiveData<Integer> progressBarSuccess = new MutableLiveData<>();
 

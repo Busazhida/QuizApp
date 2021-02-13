@@ -23,7 +23,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="?attr/attrsColorForTheme">
 
         <TextView
             android:id="@+id/questions"
@@ -59,25 +60,25 @@
             <Button
                 android:id="@+id/btn_2"
                 style="@style/buttons_style"
+                android:onClick="@{(v) -> handlers.onClick(v, 1)}"
                 android:text="@{question.incorrectAnswers.get(1)}"
                 app:layout_constraintStart_toStartOf="@+id/btn_1"
-                android:onClick="@{(v) -> handlers.onClick(v, 1)}"
                 app:layout_constraintTop_toBottomOf="@id/btn_1" />
 
             <Button
                 android:id="@+id/btn_3"
                 style="@style/buttons_style"
+                android:onClick="@{(v) -> handlers.onClick(v, 2)}"
                 android:text='@{question.incorrectAnswers.size() == 4  ? question.incorrectAnswers.get(2) : "" }'
                 app:layout_constraintStart_toStartOf="@+id/btn_1"
-                android:onClick="@{(v) -> handlers.onClick(v, 2)}"
                 app:layout_constraintTop_toBottomOf="@id/btn_2" />
 
             <Button
                 android:id="@+id/btn_4"
                 style="@style/buttons_style"
+                android:onClick="@{(v) -> handlers.onClick(v, 3)}"
                 android:text='@{question.incorrectAnswers.size() == 4 ? question.incorrectAnswers.get(3) : "" }'
                 app:layout_constraintStart_toStartOf="@+id/btn_1"
-                android:onClick="@{(v) -> handlers.onClick(v, 3)}"
                 app:layout_constraintTop_toBottomOf="@id/btn_3" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -95,18 +96,18 @@
             <Button
                 android:id="@+id/btn_5"
                 style="@style/btn1_style"
+                android:onClick="@{(v) -> handlers.onClick(v, 0)}"
                 android:text="@{question.incorrectAnswers.get(0)}"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:onClick="@{(v) -> handlers.onClick(v, 0)}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
                 android:id="@+id/btn_6"
                 style="@style/buttons_style"
+                android:onClick="@{(v) -> handlers.onClick(v, 1)}"
                 android:text="@{question.incorrectAnswers.get(1)}"
                 app:layout_constraintStart_toStartOf="@+id/btn_5"
-                android:onClick="@{(v) -> handlers.onClick(v, 1)}"
                 app:layout_constraintTop_toBottomOf="@id/btn_5" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
